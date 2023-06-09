@@ -226,6 +226,16 @@ function _populateTable() {
             td3.innerText = emplValues[i];
             var percentage = parseInt(emplValues[i]) / parseInt(populations[i]) * 100;
             td4.innerText = percentage.toFixed(2) + "%";
+            td1.style.backgroundColor = '#ffffff';
+            td2.style.backgroundColor = '#ffffff';
+            td3.style.backgroundColor = '#ffffff';
+            td4.style.backgroundColor = '#ffffff';
+            if (i % 2 == 0) {
+              td1.style.backgroundColor = '#f2f2f2';
+              td2.style.backgroundColor = '#f2f2f2';
+              td3.style.backgroundColor = '#f2f2f2';
+              td4.style.backgroundColor = '#f2f2f2';
+            }
             if (percentage > 45) {
               td1.style.backgroundColor = '#abffbd';
               td2.style.backgroundColor = '#abffbd';
