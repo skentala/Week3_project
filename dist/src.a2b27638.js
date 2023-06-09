@@ -219,13 +219,30 @@ function _populateTable() {
             var td1 = document.createElement("td");
             var td2 = document.createElement("td");
             var td3 = document.createElement("td");
+            var td4 = document.createElement("td"),
+              max = 45;
             td1.innerText = municipalities[key];
             td2.innerText = populations[i];
-            td3.innerText = emplValues[i++];
+            td3.innerText = emplValues[i];
+            var percentage = parseInt(emplValues[i]) / parseInt(populations[i]) * 100;
+            td4.innerText = percentage.toFixed(2) + "%";
+            if (percentage > 45) {
+              td1.style.backgroundColor = '#abffbd';
+              td2.style.backgroundColor = '#abffbd';
+              td3.style.backgroundColor = '#abffbd';
+              td4.style.backgroundColor = '#abffbd';
+            } else if (percentage < 25) {
+              td1.style.backgroundColor = '#ff9e9e';
+              td2.style.backgroundColor = '#ff9e9e';
+              td3.style.backgroundColor = '#ff9e9e';
+              td4.style.backgroundColor = '#ff9e9e';
+            }
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
+            tr.appendChild(td4);
             tableBody.appendChild(tr);
+            i++;
           });
         case 21:
         case "end":
