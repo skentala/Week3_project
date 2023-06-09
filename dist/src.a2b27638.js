@@ -227,15 +227,17 @@ function _populateTable() {
             var percentage = parseInt(emplValues[i]) / parseInt(populations[i]) * 100;
             td4.innerText = percentage.toFixed(2) + "%";
             if (percentage > 45) {
-              td1.style.backgroundColor = '#abffbd';
-              td2.style.backgroundColor = '#abffbd';
-              td3.style.backgroundColor = '#abffbd';
-              td4.style.backgroundColor = '#abffbd';
+              //      td1.style.backgroundColor = '#abffbd';
+              //      td2.style.backgroundColor = '#abffbd';
+              //      td3.style.backgroundColor = '#abffbd';
+              //      td4.style.backgroundColor = '#abffbd';
+              tr.style.backgroundColor = '#abffbd';
             } else if (percentage < 25) {
-              td1.style.backgroundColor = '#ff9e9e';
-              td2.style.backgroundColor = '#ff9e9e';
-              td3.style.backgroundColor = '#ff9e9e';
-              td4.style.backgroundColor = '#ff9e9e';
+              //      td1.style.backgroundColor = '#ff9e9e';
+              //      td2.style.backgroundColor = '#ff9e9e';
+              //      td3.style.backgroundColor = '#ff9e9e';
+              //      td4.style.backgroundColor = '#ff9e9e';
+              tr.style.backgroundColor = '#ff9e9e';
             }
             tr.appendChild(td1);
             tr.appendChild(td2);
