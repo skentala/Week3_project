@@ -186,36 +186,48 @@ function populateTable() {
 }
 function _populateTable() {
   _populateTable = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var tableBody, url, dataFetched, dataJson, municipalities, populations, keys, i;
+    var tableBody, url1, url2, dataFetched1, dataJson1, dataFetched2, dataJson2, municipalities, populations, emplValues, keys, i;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           tableBody = document.getElementById("table-body");
-          url = "https://statfin.stat.fi/PxWeb/sq/4e244893-7761-4c4f-8e55-7a8d41d86eff";
-          _context.next = 4;
-          return fetch(url);
-        case 4:
-          dataFetched = _context.sent;
-          _context.next = 7;
-          return dataFetched.json();
-        case 7:
-          dataJson = _context.sent;
-          municipalities = dataJson.dataset.dimension.Alue.category.label;
-          populations = dataJson.dataset.value;
+          url1 = "https://statfin.stat.fi/PxWeb/sq/4e244893-7761-4c4f-8e55-7a8d41d86eff";
+          url2 = "https://statfin.stat.fi/PxWeb/sq/5e288b40-f8c8-4f1e-b3b0-61b86ce5c065";
+          _context.next = 5;
+          return fetch(url1);
+        case 5:
+          dataFetched1 = _context.sent;
+          _context.next = 8;
+          return dataFetched1.json();
+        case 8:
+          dataJson1 = _context.sent;
+          _context.next = 11;
+          return fetch(url2);
+        case 11:
+          dataFetched2 = _context.sent;
+          _context.next = 14;
+          return dataFetched2.json();
+        case 14:
+          dataJson2 = _context.sent;
+          municipalities = dataJson1.dataset.dimension.Alue.category.label;
+          populations = dataJson1.dataset.value;
+          emplValues = dataJson2.dataset.value;
           keys = Object.keys(municipalities);
           i = 0;
           keys.forEach(function (key) {
             var tr = document.createElement("tr");
             var td1 = document.createElement("td");
             var td2 = document.createElement("td");
+            var td3 = document.createElement("td");
             td1.innerText = municipalities[key];
-            console.log(municipalities[key]);
-            td2.innerText = populations[i++];
+            td2.innerText = populations[i];
+            td3.innerText = emplValues[i++];
             tr.appendChild(td1);
             tr.appendChild(td2);
+            tr.appendChild(td3);
             tableBody.appendChild(tr);
           });
-        case 13:
+        case 21:
         case "end":
           return _context.stop();
       }
